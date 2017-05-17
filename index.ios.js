@@ -15,7 +15,6 @@ import {
 } from 'react-native';
 
 import  List  from './unique/creation'
-import  Detail  from './unique/creation/detail'
 import  Edit  from './unique/edit'
 import  Account  from './unique/account'
 
@@ -51,16 +50,14 @@ export default class reactDemos extends Component {
           <Navigator
             initialRoute={{
               name: 'list',
-              component: 'List',
+              component: List,
 
             }}
             configureScene={(route) => {
               return Navigator.SceneConfigs.FloatFromRight
             }}
             renderScene={(route, navigator) =>{
-              var Component = route.component
-              console.log(route)
-              return <Component {...route.params} navigator={navigator} />
+              return <route.component {...route.params} navigator={navigator} />    
             }}
             />
         </Icon.TabBarItem>

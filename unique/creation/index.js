@@ -106,16 +106,20 @@ export default class List extends Component {
       isloading: false
     };
 
-    _loadPage =() => {
+    _loadPage =(row) => {
+      console.log(this.props)
       this.props.navigator.push({
         name: 'detail',
-        component: 'Detail'
+        component: Detail,
+        params: {
+          row:row
+        }
       })
     }
 
   }
 
-
+   
 
   _renderRow(row) {
       return <Item
